@@ -14,7 +14,7 @@ var metadata = {
   title: 'Sing Template',
   baseUrl: '/',
   host: 'localhost',
-  port: 3000,
+  port: 8080,
   ENV: ENV
 };
 /*
