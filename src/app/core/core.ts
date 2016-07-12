@@ -7,6 +7,7 @@ import {ChatSidebar} from './chat-sidebar/chat-sidebar';
 import {AnotherPage} from './../another/another';
 import {Dashboard} from './../dashboard/dashboard';
 import {ConfigService} from './config';
+import {Test} from './../test/test';
 
 declare var jQuery: any;
 declare var Tether: any;
@@ -25,7 +26,8 @@ declare var Tether: any;
 })
 @RouteConfig([
   { path: '/dashboard', component: Dashboard, name: 'Dashboard', useAsDefault: true },
-  { path: '/another-page', component: AnotherPage, name: 'AnotherPage' }
+  { path: '/another-page', component: AnotherPage, name: 'AnotherPage' },
+  { path: '/test', component : Test, name: 'Test' }
 
 ])
 export class Core {

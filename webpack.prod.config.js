@@ -21,7 +21,7 @@ var PORT = process.env.PORT || 8080;
 
 var metadata = {
   title: 'Sing dashboard',
-  baseUrl: '/sing/dist/',
+  baseUrl: '/',
   host: HOST,
   port: PORT,
   ENV: ENV
