@@ -9,30 +9,16 @@ export class ContentHeight implements OnInit {
     $el: any;
 
     constructor(el: ElementRef) {
-        this.$el = jQuery(el.nativeElement);
-        this.adjustContentHeight(this.$el);
+        this.$el = jQuery(el.nativeElement); 
     }
-
-    adjustContentHeight(contentId): void {
-        var contentCourse = contentId;
-        if (contentId == 'content-course') {
-            var contentHeight = window.innerHeight - jQuery('#header').outerHeight() - jQuery('.page-footer').outerHeight();
-            contentCourse.innerHeight(contentHeight);
-
-        } else if (contentId == 'right-panel') {
-            var contentHeight = window.innerHeight;
-            contentCourse.innerHeight(contentHeight);
-        } else {
-            var contentHeight = window.innerHeight - jQuery('#header').outerHeight();
-            contentCourse.css('min-height', contentHeight);
-            if (contentId == 'login-right-panel') {
-                jQuery('#login-left-panel').outerHeight(contentCourse.outerHeight());
-            }
-        }
-
+    adjustContentHeight(): void {
+        var content =  this.$el;
+        var contentHeight = window.innerHeight - jQuery('#header').outerHeight();
+        content.css('min-height', contentHeight);
     }
     ngOnInit(): void {
-
+        jQuery(window).on('resize', this.adjustContentHeight.bind(this));
+        this.adjustContentHeight();
     }
 
 }
