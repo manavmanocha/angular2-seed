@@ -1,0 +1,69 @@
+<div id="ribbon" class="dls-title ribbon-title">            
+    <span class="color-default ribbon-heading"> My Courses({{classCount}})</span>
+</div>
+<div id="content">
+	<div class="row margin-0 course-list" >
+		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" *ngFor="let class of classlist;let index = index">
+			<div class="courseitem">
+				<div class="row margin-0 course-name" [ngStyle]="{'background-color':colors[index%5]}">
+					<div class="col-xs-3 padding-0">
+			            <img src="./../assets/images/avatars/Book-Asset.png" class="img-responsive course-image" alt="{{class['title']}}" title="{{class.title}}">
+			        </div>
+		            <div class="col-xs-9 course-title" >
+		            	{{class['products'][0]['title']}}
+		            	<span> ({{class.title}}) </span>		            	
+		            </div>
+	 			</div>
+				<div class="row margin-0 course-publisher color-default">
+					<div class="col-xs-12 text-center" >
+						{{class['products'][0]['author']}}				
+					</div>
+				</div>			
+				<div class="row margin-0 course-stats color-default">
+					<div class="col-xs-12">
+						<strong class="start-date">Start Date: </strong>
+						<span>{{class['class']['startdate']}}
+						</span>
+
+					</div>
+	            	<div class="col-xs-12">
+	            		<strong class="duration">End Date: </strong>
+	            		<span>{{class['class']['enddate']}}</span>
+	            	</div>
+	            	<div class="col-xs-12">
+	            		<strong class="instructor-name">Instructor: </strong>
+	            		<span>{{class['class']['instructorname']}}</span>
+	            	</div>
+	            	<div class="col-xs-12">
+	            		<strong class="student-count">Students Enrolled: </strong>
+	            		<span>{{class.count}}</span>
+	            	</div>
+	      </div>
+				<div class="row margin-0 course-progress">
+					<div class="col-xs-12" [ngStyle]="{'visibility': class['products'][0].status == 'inactive' ? 'hidden' : 'visible'}">
+						<!--<div data-book-progress="app/modules/classlist/views/bookProgress.tpl.html" data-book-id="{{class['products'][0].uuid}}" data-book-status="{{class['products'][0].status}}"></div>-->
+						<div class="progress-wrapper">    
+    						<div class="show-stats row margin-0">
+        						<div class="col-xs-5 padding-0">My Progress:</div>
+        							<div class="progress col-xs-5 padding-0">
+            							<div class="progress-bar" [ngStyle]="{width: '50' + '%'}"></div>
+        							</div>
+        							<div class="col-xs-2 padding-0 progress-text">50%</div>
+    							</div>    
+						</div>    
+					</div>
+				</div>
+				<div class="row margin-0 course-button">
+					<div class="col-xs-12">
+						<a class="btn dashboard-button" load-course loadingtext='Loading' *ngIf="(class['products'][0].status != 'inactive')">
+	           				{{currentBookProgress ? 'Dashboard' : 'Start'}}
+	           			</a>
+	           			<a href="javascript:void(0)" class="btn dashboard-button" *ngIf="(class['products'][0].status == 'inactive')">
+	           				{{currentBookProgress ? 'Dashboard' : 'Start'}}
+	           			</a>		        		
+					</div>				
+				</div>
+			</div>			    
+		</div>
+	</div>
+</div>	

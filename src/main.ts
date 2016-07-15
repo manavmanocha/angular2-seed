@@ -15,6 +15,7 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {ROUTER_PROVIDERS} from '@angular/router-deprecated';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {HTTP_PROVIDERS} from '@angular/http';
+import {LanguageData} from './app/core/languageSelector/languageData';
 
 const ENV_PROVIDERS = [];
 
@@ -30,6 +31,7 @@ import {ConfigService} from './app/core/config';
 document.addEventListener('DOMContentLoaded', function main(): void {
   bootstrap(App, [
     ConfigService,
+    LanguageData,
     ...ENV_PROVIDERS,
     ...HTTP_PROVIDERS,
     ...ROUTER_PROVIDERS,

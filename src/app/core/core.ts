@@ -8,7 +8,11 @@ import {AnotherPage} from './../another/another';
 import {Dashboard} from './../dashboard/dashboard';
 import {ConfigService} from './config';
 import {Test} from './../test/test';
-
+import {AppsDropdown} from './appsDropdown/appsDropdown';
+import {LanguageSelector} from './languageSelector/languageSelector';
+import {LoginInfo} from './loginInfo/loginInfo';
+import {Classlist} from './../classlist/classlist';
+import {ContentHeight} from './contentHeight/contentHeight';
 declare var jQuery: any;
 declare var Tether: any;
 
@@ -21,11 +25,12 @@ declare var Tether: any;
     id: 'app'
   },
   providers: [ FORM_PROVIDERS ],
-  directives: [Sidebar, Navbar, ChatSidebar, ROUTER_DIRECTIVES],
+  directives: [Sidebar, Navbar, ChatSidebar, ROUTER_DIRECTIVES, AppsDropdown,LanguageSelector,LoginInfo,ContentHeight],
   template: require('./core.html')
 })
 @RouteConfig([
-  { path: '/dashboard', component: Dashboard, name: 'Dashboard', useAsDefault: true },
+  { path: '/classlist', component: Classlist, name: 'Classlist', useAsDefault: true },
+  { path: '/dashboard', component: Dashboard, name: 'Dashboard'},
   { path: '/another-page', component: AnotherPage, name: 'AnotherPage' },
   { path: '/test', component : Test, name: 'Test' }
 
@@ -46,6 +51,7 @@ export class Core {
     this.configFn = config;
     this.chatOpened = false;
     this.router = router;
+
 
     jQuery.fn.onPositionChanged = function (trigger, millis): any {
       if (millis == null) { millis = 100; }

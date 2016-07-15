@@ -1,0 +1,25 @@
+<ul class="header-dropdown-list apps-dropdown pull-right ">
+    <li class="dropdown">     
+        <a class="dropdown-toggle-custom" data-toggle="dropdown" href="javascript:void()">
+            <span><i class="glyphicon glyphicon-th"></i></span>
+        </a>    
+        <div class="dropdown-menu font-md pull-right">
+            <div class="header">
+                <span>DLS</span>
+                 <span>App Library</span>
+
+            </div>
+            <ul >
+                <li *ngFor="let app of apps" [ngClass]="{'current-app': currentApp==app.class , 'app-disabled' : app.class == 'suggestions' || app.class == 'tests' || (app['isEnabled'] == 'false')}" class="{{app.class}}">
+                    <a>
+                        <div>
+                           
+                            <img src="{{app.img}}"/>
+                        </div>
+                    </a>
+                    <span>{{app.name}}</span>
+                </li>                     
+            </ul>
+        </div>
+    </li>    
+</ul>
