@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {Http} from '@angular/http';
+import {DateFormat} from './../core/pipes/dateFormat';
+
 @Component({
     selector: 'classlist',
-    template: require('./classlist.html')
+    template: require('./classlist.html'),
+    pipes: [DateFormat],
 })
 
 export class Classlist {

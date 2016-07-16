@@ -22,13 +22,13 @@
 				<div class="row margin-0 course-stats color-default">
 					<div class="col-xs-12">
 						<strong class="start-date">Start Date: </strong>
-						<span>{{class['class']['startdate']}}
+						<span>{{class['class']['startdate']|dateFormat :'DD MMM YYYY' }}
 						</span>
 
 					</div>
 	            	<div class="col-xs-12">
 	            		<strong class="duration">End Date: </strong>
-	            		<span>{{class['class']['enddate']}}</span>
+	            		<span>{{class['class']['enddate']|dateFormat :'DD MMM YYYY' }}</span>
 	            	</div>
 	            	<div class="col-xs-12">
 	            		<strong class="instructor-name">Instructor: </strong>
